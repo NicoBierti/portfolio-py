@@ -42,15 +42,6 @@ def intro():
         print(end='-')
     print('')
 
-def key_to_continue():
-    while True:
-        continue_key = input('Press the SPACE BAR to continue...')
-        try:
-            if continue_key == " ":
-                break
-        except TypeError:
-            print('Press the SPACE BAR you fool')
-
 def wait():
     time.sleep(0.5)
     print("Press any key to continue")

@@ -6,7 +6,7 @@ import os
 import datetime
 import cryptocompare
 import time
-from additional_functions import cover, intro, key_to_continue, wait
+from additional_functions import cover, intro, wait
 
 # Set working directory and workbook
 current_working_directory = os.getcwd()
@@ -231,7 +231,6 @@ def print_portfolio():
 # -------------------- Main Program -----------------------------------------------------------------------------
 cover()
 intro()
-# key_to_continue()
 wait()
 formatting()
 choice()
