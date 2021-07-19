@@ -8,7 +8,8 @@ def choice():
     print('"1" to add a new asset')
     print('"2" to delete an asset')
     print('"3" to check portfolio')
-    print('"4" to quit')
+    print('"4" refresh prices in portfolio')
+    print('"5" to quit')
     option = str(input('Option: '))
     # option 1 inserts asset
     if option == str(1):
@@ -29,9 +30,10 @@ def choice():
     elif option == str(2):
         delete_asset()
     elif option == str(3):
-        
         print_portfolio()
     elif option == str(4):
+        refresh_prices()
+    elif option == str(5):
         print('')
         print('Thank you for using this not so well made Python Portfolio')
         print('Byebye')
@@ -174,3 +176,12 @@ def print_portfolio():
     for i in range (0,105):
         print(end='-')
     print("\n")
+
+# Funtion refresh prices
+def refresh_prices():
+    for rows in range (2 , workbook.active.max_row + 1):
+        if workbook.active.cell(row = rows, column = 1).value != None:
+            asset_name = workbook.active.cell(row = rows, column = 1).value
+            cells = workbook.active.cell(row = rows, column = 2)
+            cells.value = cryptocompare.get_price([asset_name],['USD'])[asset_name]['USD']
+
